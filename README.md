@@ -13,10 +13,12 @@ Funcionalidades:
  - Contas
     - Cadastro da conta
     - Vínculo do participante pagador da conta
+    - Vínculo de atividade
 
  - Cadastro de atividade
    - Vínculo dos participantes da atividade
-   - Vínculo das contas da atividade
+   - Vínculo das contas em cima de uma atividade
+
 
  - Exibição dos valores a pagar de cada participante para o recebedor 
   - Por exemplo se o valor total de uma atividade executada pelos participantes for de R$ 1000 e temos 3 participantes.
@@ -25,6 +27,20 @@ Funcionalidades:
    - Participante 3 pagou R$ 100
    - Temos o valor total de R$ 333,33 para cada participante
    - Logo o participante 2 deve enviar R$ 133,33 ao participante 1 e o Participante 3 deve enviar R$ 233,33 para o participante 1
-   - Essencial para casos onde há vários participantes e várias contas em uma atividade
-
-
+   - Essencial para casos onde há vários participantes e várias contas em uma determinada atividade (churrasco)
+ - Dependências
+  - Hive
+  - Intl
+- Parte 1
+  - UI
+    - Barra de navegação inferior
+        - [x] Botões para cadastro de participante, Botões para atividades, Botões para cadastro de contas
+    - Listagem das atividades (Home)
+        - [ ] View que mostra detalhes de quem participou da atividade, valor total, assim como lista dos valores a serem pagos pelos participantes e os valores que ja foram pagos
+    - Listagem
+  
+  - Validações em formulários
+    - [x] Cadastro de participante
+    - [ ] Cadastro de atividade
+    - [ ] Cadastro de conta
+        

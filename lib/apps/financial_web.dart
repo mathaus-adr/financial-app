@@ -13,7 +13,7 @@ class FinancialApp extends StatelessWidget {
       title: appName,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.indigo),
-      home: InitialPage(),
+      home: const InitialPage(),
     );
   }
 }
