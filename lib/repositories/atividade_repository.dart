@@ -44,4 +44,11 @@ class AtividadeRepository {
     dynamic atividadeBox = Hive.box<Atividade>('atividade');
     atividadeBox.add(atividade);
   }
+
+   List<Atividade> all() {
+     return (Hive.box<Atividade>('atividade')).values.toList();
+   }
+    getListenable() {
+     return (Hive.box<Atividade>('atividade')).listenable();
+   }
 }
