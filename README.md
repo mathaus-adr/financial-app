@@ -18,7 +18,8 @@ Funcionalidades:
  - Cadastro de atividade
    - Vínculo dos participantes da atividade
    - Vínculo das contas em cima de uma atividade
-
+   - Fechamento da atividade com os devidos valores para os participantes
+   - Edição de quem entra ou sai da atividade (contas e participantes) 
 
  - Exibição dos valores a pagar de cada participante para o recebedor 
   - Por exemplo se o valor total de uma atividade executada pelos participantes for de R$ 1000 e temos 3 participantes.
@@ -37,10 +38,12 @@ Funcionalidades:
         - [x] Botões para cadastro de participante, Botões para atividades, Botões para cadastro de contas
     - Listagem das atividades (Home)
         - [ ] View que mostra detalhes de quem participou da atividade, valor total, assim como lista dos valores a serem pagos pelos participantes e os valores que ja foram pagos
-    - Listagem
-  
+    - [ ] Detalhes da atividade
+      - [ ] Contas envolvidas na atividade (edição)
+      - [ ] Participantes envolvidos (edição)
+      - [ ] Fechamento da atividade  
   - Validações em formulários
     - [x] Cadastro de participante
-    - [ ] Cadastro de atividade
-    - [ ] Cadastro de conta
-        
+    - [x] Cadastro de atividade
+    - [x] Cadastro de conta
+
