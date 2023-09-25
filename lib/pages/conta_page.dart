@@ -1,5 +1,4 @@
 import 'package:financialweb/components/app/app_navbar.dart';
-import 'package:financialweb/helpers/money_format.dart';
 import 'package:financialweb/repositories/conta_repository.dart';
 import 'package:financialweb/repositories/participante_repository.dart';
 import 'package:flutter/material.dart';
@@ -50,12 +49,6 @@ class _ContaPageState extends State<ContaPage> {
       }
     }
 
-    // _contaNome.addListener(() {
-    //   setState(() {
-    //     _contaNome.text =
-    //         MoneyFormat.real.format(MoneyFormat.real.parse(_contaNome.text));
-    //   });
-    // });
     return Scaffold(
       appBar: AppBar(title: const Center(child: Text('Contas'))),
       body: Padding(

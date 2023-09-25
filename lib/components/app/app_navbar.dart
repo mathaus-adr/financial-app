@@ -1,3 +1,4 @@
+import 'package:financialweb/pages/atividade_page.dart';
 import 'package:financialweb/pages/conta_page.dart';
 import 'package:flutter/material.dart';
 
@@ -18,12 +19,14 @@ class _AppNavBarState extends State<AppNavBar> {
         MaterialPageRoute(builder: (_) => const CreateParticipantePage()));
   }
 
-  cadastrarAtividade() {}
+  cadastrarAtividade() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (_) => const AtividadePage()));
+  }
 
   exibirValores() {}
 
   cadastrarConta() {
-
     Navigator.push(
         context, MaterialPageRoute(builder: (_) => const ContaPage()));
   }
