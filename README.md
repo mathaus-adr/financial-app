@@ -47,3 +47,7 @@ Funcionalidades:
     - [x] Cadastro de atividade
     - [x] Cadastro de conta
 
+
+- Parte 2
+  - Mudar a navbar para responder aos eventos
+  - Utilizar com base na listagem de eventos 
