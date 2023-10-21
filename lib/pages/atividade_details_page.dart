@@ -1,4 +1,3 @@
-import 'package:financialweb/components/conta/conta_list.dart';
 import 'package:flutter/material.dart';
 
 import '../components/app/app_navbar.dart';
@@ -19,7 +18,7 @@ class _AtividadeDetailsState extends State<AtividadeDetails> {
         title: const Center(child: Text('FinancialApp')),
       ),
       body: Padding(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

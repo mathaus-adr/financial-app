@@ -19,7 +19,7 @@ class _DropdownState extends State<Dropdown> {
 
     for (final conta in ContaRepository().all()) {
       contas.add(DropdownMenuEntry<Conta>(
-          value: conta, label: conta.name, trailingIcon: Icon(Icons.search)));
+          value: conta, label: conta.name, trailingIcon: const Icon(Icons.search)));
     }
     return Padding(
         padding: const EdgeInsets.all(24),
