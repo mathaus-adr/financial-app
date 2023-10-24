@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 
-import 'conta.dart';
-import 'participante.dart';
+import 'bill.dart';
+import 'person.dart';
 
 part 'event.g.dart';
 
@@ -10,8 +10,8 @@ class Event {
   @HiveField(0)
   late String name;
   @HiveField(1)
-  late List<Participante>? participantes = [];
+  late List<Person>? participantes = [];
   @HiveField(2)
-  late List<Conta>? contas = [];
-  Event({required this.name, this.participantes, this.contas});
+  late List<Bill>? contas = [];
+  Event({required this.name, required this.participantes, required this.contas});
 }

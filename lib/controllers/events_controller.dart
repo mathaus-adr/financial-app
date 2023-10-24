@@ -23,7 +23,7 @@ class EventsController extends ChangeNotifier {
   }
 
   save(String name) async {
-    final event = Event(name: name);
+    final event = Event(name: name, contas: [], participantes: []);
 
     final success = await eventsRepository.create(event);
 
@@ -33,5 +33,9 @@ class EventsController extends ChangeNotifier {
       return Future.value(true);
     }
     return Future.value(false);
+  }
+
+  Event? find(int id) {
+    return eventsRepository.find(id);
   }
 }

@@ -39,12 +39,11 @@ class _EventsPageState extends State<EventsPage> {
               itemBuilder: (context, index) {
                 return Card(
                   child: TileEventWidget(
+                    id: index,
                     event: events[index],
                     selected: isEventSelected(events[index]),
                     toogleEvent: (value) {
-                      print(_selectedEvents);
                       handleSelectedEvent(value, events[index]);
-                      controller.notifyListeners();
                     },
                   ),
                 );
@@ -70,14 +69,19 @@ class _EventsPageState extends State<EventsPage> {
 
   handleSelectedEvent(bool value, Event event) {
     if (!value) {
-      _selectedEvents = _selectedEvents
-          .where((element) => element.name != event.name)
-          .toList();
+      setState(() {
+        _selectedEvents = _selectedEvents
+            .where((element) => element.name != event.name)
+            .toList();
+      });
+
       return;
     }
 
     if (!isEventSelected(event)) {
-      _selectedEvents.add(event);
+      setState(() {
+        _selectedEvents.add(event);
+      });
     }
   }
 }

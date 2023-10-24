@@ -1,18 +1,18 @@
-import 'package:financialweb/models/participante.dart';
+import 'package:financialweb/models/person.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import '../models/conta.dart';
+import '../models/bill.dart';
 
 class ContaRepository {
-  void create(String text, double value, Participante participante) async {
-    var box = Hive.box<Conta>('conta');
-    box.add(Conta(name: text, preco: value, payedBy: participante));
+  void create(String text, double value, Person participante) async {
+    var box = Hive.box<Bill>('bill');
+    box.add(Bill(name: text, preco: value, payedBy: participante));
   }
 
-  List<Conta> all() {
-    return (Hive.box<Conta>('conta')).values.toList();
+  List<Bill> all() {
+    return (Hive.box<Bill>('bill')).values.toList();
   }
 
   getListenable() {
-    return (Hive.box<Conta>('conta')).listenable();
+    return (Hive.box<Bill>('bill')).listenable();
   }
 }

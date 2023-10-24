@@ -1,18 +1,18 @@
-import 'dart:math';
-
 import 'package:financialweb/models/event.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
 
 class TileEventWidget extends StatelessWidget {
   const TileEventWidget(
       {super.key,
       required this.event,
       required this.selected,
-      required this.toogleEvent});
+      required this.toogleEvent,
+      required this.id});
   final Event event;
   final bool selected;
   final Function toogleEvent;
+  final int id;
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +29,10 @@ class TileEventWidget extends StatelessWidget {
       ),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       onTap: () {
-        //EVENT DETAILS PAGE AQUI
+        context.goNamed('event-details', params: {'eventIndex': id.toString()});
       },
     );
-  }  
+  }
+
   editEvent(Event event) {}
 }

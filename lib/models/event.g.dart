@@ -18,8 +18,8 @@ class EventAdapter extends TypeAdapter<Event> {
     };
     return Event(
       name: fields[0] as String,
-      participantes: (fields[1] as List?)?.cast<Participante>(),
-      contas: (fields[2] as List?)?.cast<Conta>(),
+      participantes: (fields[1] as List?)?.cast<Person>(),
+      contas: (fields[2] as List?)?.cast<Bill>(),
     );
   }
 

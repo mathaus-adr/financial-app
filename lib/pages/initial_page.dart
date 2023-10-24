@@ -1,10 +1,10 @@
 import 'package:financialweb/helpers/money_format.dart';
 import 'package:financialweb/pages/atividade_details_page.dart';
-import 'package:financialweb/repositories/atividade_repository.dart';
+import 'package:financialweb/repositories/events_repository.dart';
 import 'package:flutter/material.dart';
 
 import '../components/app/app_navbar.dart';
-import '../models/atividade.dart';
+import '../models/event.dart';
 
 class InitialPage extends StatefulWidget {
   const InitialPage({super.key});
@@ -16,7 +16,7 @@ class InitialPage extends StatefulWidget {
 class _InitialPageState extends State<InitialPage> {
   @override
   Widget build(BuildContext context) {
-    final atividades = AtividadeRepository().all();
+    final atividades = EventsRepository().list();
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text('FinancialApp')),
@@ -42,8 +42,10 @@ class _InitialPageState extends State<InitialPage> {
     );
   }
 
-  mostrarDetalhes(Atividade atividade) {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (_) => AtividadeDetails(atividade: atividade)));
+  mostrarDetalhes(Event atividade) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (_) => AtividadeDetails(atividade: atividade)));
   }
 }

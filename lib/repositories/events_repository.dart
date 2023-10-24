@@ -33,4 +33,10 @@ class EventsRepository {
 
     return box.values.toList();
   }
+
+  Event? find(int id) {
+    openBox();
+
+    return box.values.toList().asMap()[id];
+  }
 }

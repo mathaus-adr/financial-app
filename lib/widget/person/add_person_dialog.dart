@@ -1,22 +1,23 @@
 import 'package:financialweb/controllers/events_controller.dart';
+import 'package:financialweb/controllers/person_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-class AddEventDialog extends StatefulWidget {
-  const AddEventDialog({super.key});
+class AddPerson extends StatefulWidget {
+  const AddPerson({super.key});
 
   @override
-  State<AddEventDialog> createState() => _AddEventDialogState();
+  State<AddPerson> createState() => _AddPersonState();
 }
 
-class _AddEventDialogState extends State<AddEventDialog> {
+class _AddPersonState extends State<AddPerson> {
   final _formKey = GlobalKey<FormState>();
   final _title = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final controller = context.read<EventsController>();
+    final controller = context.read<PersonController>();
     return Padding(
         padding: EdgeInsets.only(
           left: 12,

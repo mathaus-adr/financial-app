@@ -1,10 +1,10 @@
 import 'package:financialweb/components/app/app_navbar.dart';
 import 'package:financialweb/repositories/conta_repository.dart';
-import 'package:financialweb/repositories/participante_repository.dart';
+import 'package:financialweb/repositories/person_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../models/participante.dart';
+import '../models/person.dart';
 
 class ContaPage extends StatefulWidget {
   const ContaPage({super.key});
