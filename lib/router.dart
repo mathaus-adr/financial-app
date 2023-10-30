@@ -1,4 +1,3 @@
-import 'package:financialweb/pages/create_account_page.dart';
 import 'package:financialweb/pages/event_details_page.dart';
 import 'package:financialweb/pages/login_page.dart';
 import 'package:financialweb/pages/signup_page.dart';

@@ -56,12 +56,13 @@ class _EventsPageState extends State<EventsPage> {
         );
       }),
       floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: Colors.indigo,
         onPressed: () => showModalBottomSheet(
             context: context,
             builder: (_) => const AddEventDialog(),
             isScrollControlled: true),
-        label: const Text('Adicionar'),
-        icon: const Icon(Icons.add),
+        label: const Text('Adicionar', style: TextStyle(color: Colors.white),),
+        icon: const Icon(Icons.add, color: Colors.white,),
       ),
     );
   }

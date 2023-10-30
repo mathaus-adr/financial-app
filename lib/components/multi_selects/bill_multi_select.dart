@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 
 import '../../controllers/bill_controller.dart';
 import '../../models/bill.dart';
-import '../../models/person.dart';
 
 class BillMultiSelect extends StatefulWidget {
   BillMultiSelect(

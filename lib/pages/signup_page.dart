@@ -87,7 +87,9 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: Center(
                   child: ElevatedButton(
                     style: const ButtonStyle(
-                        minimumSize: MaterialStatePropertyAll(Size(50, 50))),
+                        minimumSize: MaterialStatePropertyAll(Size(50, 50)),
+                        backgroundColor:
+                            MaterialStatePropertyAll(Colors.indigo)),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         bool success = controller.cadastrar(nameController.text,
@@ -102,7 +104,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           return;
                         }
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Já existe um cadastro com esse email!')),
+                          const SnackBar(
+                              content: Text(
+                                  'Já existe um cadastro com esse email!')),
                         );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -111,7 +115,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         );
                       }
                     },
-                    child: const Text('Cadastrar'),
+                    child: const Text('Cadastrar', style: TextStyle(color: Colors.white),),
                   ),
                 ),
               ),

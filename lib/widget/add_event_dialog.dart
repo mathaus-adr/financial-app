@@ -74,6 +74,9 @@ class _AddEventDialogState extends State<AddEventDialog> {
                         width: double.infinity,
                         height: 50,
                         child: FilledButton.tonalIcon(
+                          style: const ButtonStyle(
+                              backgroundColor:
+                                  MaterialStatePropertyAll(Colors.indigo)),
                           onPressed: () async {
                             // FocusScope.of(context).requestFocus(FocusNode());
                             if (_formKey.currentState!.validate()) {
@@ -81,8 +84,8 @@ class _AddEventDialogState extends State<AddEventDialog> {
                               if (context.mounted) context.pop(context);
                             }
                           },
-                          icon: const Icon(Icons.check),
-                          label: const Text('Cadastrar'),
+                          icon: const Icon(Icons.check, color: Colors.white),
+                          label: const Text('Cadastrar', style: TextStyle(color: Colors.white)),
                         ),
                       ),
                     )

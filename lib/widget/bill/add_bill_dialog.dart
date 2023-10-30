@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import '../../components/multi_selects/person_multi_select.dart';
 import '../../controllers/bill_controller.dart';
 import '../../controllers/person_controller.dart';
 import '../../models/person.dart';
@@ -127,6 +126,9 @@ class _AddBillState extends State<AddBill> {
                         width: double.infinity,
                         height: 50,
                         child: FilledButton.tonalIcon(
+                          style: const ButtonStyle(
+                              backgroundColor:
+                                  MaterialStatePropertyAll(Colors.indigo)),
                           onPressed: () async {
                             if (_formKey.currentState!.validate()) {
                               final Bill bill = Bill(
@@ -137,8 +139,8 @@ class _AddBillState extends State<AddBill> {
                               if (context.mounted) context.pop(context);
                             }
                           },
-                          icon: const Icon(Icons.check),
-                          label: const Text('Cadastrar'),
+                          icon: const Icon(Icons.check, color: Colors.white),
+                          label: const Text('Cadastrar', style: TextStyle(color: Colors.white)),
                         ),
                       ),
                     )

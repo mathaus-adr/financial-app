@@ -9,6 +9,10 @@ class UserRepository {
     initHive();
   }
 
+  getAuthenticatedUser() {
+    return _user;
+  }
+  
   openBox() async {
     await initHive();
     box = await Hive.openBox<User>('users');

@@ -94,7 +94,12 @@ class _LoginPageState extends State<LoginPage> {
                             const SnackBar(
                                 content: Text('Login efetuado com sucesso!')),
                           );
+                          return;
                         }
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content: Text('Email/senha incorretos, tente novamente!')),
+                        );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
