@@ -4,7 +4,7 @@ import 'package:financialweb/repositories/atividade_repository.dart';
 import 'package:flutter/material.dart';
 
 import '../models/conta.dart';
-import '../repositories/conta_repository.dart';
+import '../repositories/bill_repository.dart';
 
 class AtividadePage extends StatefulWidget {
   const AtividadePage({Key? key}) : super(key: key);

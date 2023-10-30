@@ -12,6 +12,11 @@ dependencies:
   intl:
   hive:
   hive_flutter:
+  http: ^0.13.5
+  provider: ^6.0.5
+  go_router: ^6.2.0
+  multi_select_flutter: ^4.1.3
+
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,5 @@
 import 'package:financialweb/components/app/app_navbar.dart';
-import 'package:financialweb/repositories/participante_repository.dart';
+import 'package:financialweb/repositories/person_repository.dart';
 import 'package:flutter/material.dart';
 
 class CreateParticipantePage extends StatefulWidget {
@@ -14,7 +14,7 @@ class _CreateParticipantePageState extends State<CreateParticipantePage> {
   final _participanteNome = TextEditingController();
   cadastrar() {
     if (_form.currentState!.validate()) {
-      ParticipanteRepository().create(_participanteNome.text);
+      PersonRepository().create(_participanteNome.text);
       Navigator.pop(context);
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Center(

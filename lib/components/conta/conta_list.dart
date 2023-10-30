@@ -1,4 +1,4 @@
-import 'package:financialweb/repositories/conta_repository.dart';
+import 'package:financialweb/repositories/bill_repository.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/conta.dart';

@@ -1,11 +1,11 @@
 import 'package:hive/hive.dart';
 
-part 'participante.g.dart';
+part 'person.g.dart';
 
 @HiveType(typeId: 2)
-class Participante {
+class Person {
   @HiveField(0)
   late String name;
 
-  Participante({required this.name});
+  Person({required this.name});
 }

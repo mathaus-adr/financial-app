@@ -1,32 +1,38 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'participante.dart';
+part of 'bill.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class ParticipanteAdapter extends TypeAdapter<Participante> {
+class BillAdapter extends TypeAdapter<Bill> {
   @override
-  final int typeId = 2;
+  final int typeId = 1;
 
   @override
-  Participante read(BinaryReader reader) {
+  Bill read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Participante(
+    return Bill(
       name: fields[0] as String,
+      preco: fields[1] as double,
+      payedBy: fields[2] as Person?,
     );
   }
 
   @override
-  void write(BinaryWriter writer, Participante obj) {
+  void write(BinaryWriter writer, Bill obj) {
     writer
-      ..writeByte(1)
+      ..writeByte(3)
       ..writeByte(0)
-      ..write(obj.name);
+      ..write(obj.name)
+      ..writeByte(1)
+      ..write(obj.preco)
+      ..writeByte(2)
+      ..write(obj.payedBy);
   }
 
   @override
@@ -35,7 +41,7 @@ class ParticipanteAdapter extends TypeAdapter<Participante> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ParticipanteAdapter &&
+      other is BillAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
