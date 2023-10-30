@@ -43,7 +43,7 @@ class _AddPersonState extends State<AddPerson> {
                       padding: const EdgeInsets.symmetric(vertical: 20),
                       child: Row(
                         children: [
-                          const Expanded(child: Text('Novo evento')),
+                          const Expanded(child: Text('Nova pessoa')),
                           IconButton(
                               onPressed: () => Navigator.of(context).pop(),
                               icon: const Icon(Icons.close))
@@ -63,7 +63,7 @@ class _AddPersonState extends State<AddPerson> {
                             focusColor: Colors.indigo),
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "Informe o nome do evento!";
+                            return "Informe o nome da pessoa!";
                           }
                           return null;
                         },
@@ -75,11 +75,16 @@ class _AddPersonState extends State<AddPerson> {
                         width: double.infinity,
                         height: 50,
                         child: FilledButton.tonalIcon(
-                          onPressed: () async {
-                            // FocusScope.of(context).requestFocus(FocusNode());
+                          onPressed: () {
                             if (_formKey.currentState!.validate()) {
-                              await controller.save(_title.text);
+                              controller.save(_title.text);
                               if (context.mounted) context.pop(context);
+                              
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                      content: Center(
+                                child: Text('Pessoa adicionada com sucesso!'),
+                              )));
                             }
                           },
                           icon: const Icon(Icons.check),

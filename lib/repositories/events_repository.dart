@@ -39,4 +39,10 @@ class EventsRepository {
 
     return box.values.toList().asMap()[id];
   }
+
+  edit(int index, Event event) {
+    openBox();
+    box.put(index, event);
+    return true;
+  }
 }

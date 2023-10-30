@@ -4,15 +4,16 @@ import 'package:provider/provider.dart';
 
 import '../controllers/user_controller.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
+  TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   @override
@@ -20,11 +21,9 @@ class _LoginPageState extends State<LoginPage> {
     final controller = context.read<UserController>();
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text(
-            'Login',
-            style: TextStyle(color: Colors.white),
-          ),
+        title: const Text(
+          'Cadastro',
+          style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.indigo,
       ),
@@ -36,6 +35,21 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: TextFormField(
+                  controller: nameController,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(), labelText: "Nome"),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Preencha o nome';
+                    }
+                    return null;
+                  },
+                ),
+              ),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
@@ -67,16 +81,6 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
               ),
-              InkWell(
-                child: const Text(
-                  'Cadastre-se',
-                  style: TextStyle(
-                    color: Colors.blue,
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-                onTap: () => context.goNamed('cadastre-se'),
-              ),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8, vertical: 16.0),
@@ -86,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                         minimumSize: MaterialStatePropertyAll(Size(50, 50))),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        bool success = controller.login(
+                        bool success = controller.cadastrar(nameController.text,
                             emailController.text, passwordController.text);
                         if (success) {
                           context.goNamed('eventos');
@@ -94,7 +98,12 @@ class _LoginPageState extends State<LoginPage> {
                             const SnackBar(
                                 content: Text('Login efetuado com sucesso!')),
                           );
+
+                          return;
                         }
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Já existe um cadastro com esse email!')),
+                        );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
@@ -102,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                         );
                       }
                     },
-                    child: const Text('Login'),
+                    child: const Text('Cadastrar'),
                   ),
                 ),
               ),

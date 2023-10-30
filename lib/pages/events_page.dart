@@ -19,7 +19,12 @@ class _EventsPageState extends State<EventsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Eventos')),
+        title: const Center(
+            child: Text(
+          'Eventos',
+          style: TextStyle(color: Colors.white),
+        )),
+        backgroundColor: Colors.indigo,
       ),
       body: Consumer<EventsController>(builder: (context, controller, _) {
         final events = controller.events;
@@ -33,7 +38,7 @@ class _EventsPageState extends State<EventsPage> {
         }
 
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
           child: ListView.builder(
               itemCount: events.length,
               itemBuilder: (context, index) {

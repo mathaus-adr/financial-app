@@ -1,5 +1,5 @@
 import 'package:financialweb/components/app/app_navbar.dart';
-import 'package:financialweb/repositories/conta_repository.dart';
+import 'package:financialweb/repositories/bill_repository.dart';
 import 'package:financialweb/repositories/person_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

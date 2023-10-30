@@ -23,16 +23,10 @@ class TileEventWidget extends StatelessWidget {
         value: selected,
       ),
       title: Text(event.name),
-      trailing: IconButton(
-        icon: const Icon(Icons.edit),
-        onPressed: () => editEvent(event),
-      ),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       onTap: () {
         context.goNamed('event-details', params: {'eventIndex': id.toString()});
       },
     );
   }
-
-  editEvent(Event event) {}
 }

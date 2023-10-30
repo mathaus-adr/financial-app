@@ -1,6 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/foundation.dart';
 
+import '../models/bill.dart';
 import '../models/event.dart';
+import '../models/person.dart';
 import '../repositories/events_repository.dart';
 
 class EventsController extends ChangeNotifier {
@@ -37,5 +41,10 @@ class EventsController extends ChangeNotifier {
 
   Event? find(int id) {
     return eventsRepository.find(id);
+  }
+
+  edit(int index, String name, List<Person> people, List<Bill> bills) async {
+    final event = Event(name: name, participantes: people, contas: bills);
+    final success = await eventsRepository.edit(index, event);
   }
 }
