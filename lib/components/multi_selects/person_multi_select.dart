@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 
 import '../../models/person.dart';
 
+// ignore: must_be_immutable
 class PersonMultiSelect extends StatefulWidget {
   PersonMultiSelect(
       {super.key,
@@ -23,6 +24,7 @@ class PersonMultiSelect extends StatefulWidget {
 
 class _PersonMultiSelectState extends State<PersonMultiSelect> {
   List<Person> selectedPeople = [];
+  List<Person> initialValue = [];
   @override
   Widget build(BuildContext context) {
     return Consumer<PersonController>(builder: (context, controller, _) {
@@ -50,8 +52,14 @@ class _PersonMultiSelectState extends State<PersonMultiSelect> {
             selectedItemsTextStyle: const TextStyle(
               color: Colors.white
             ),
-            initialValue: widget.initialValue,
+            initialValue: initialValue,
           ));
+    });
+  }
+
+  setInitialValue(List<Person> people) {
+    setState(() {
+      initialValue = people;
     });
   }
 }

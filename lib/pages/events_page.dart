@@ -69,7 +69,7 @@ class _EventsPageState extends State<EventsPage> {
 
   isEventSelected(Event event) {
     return _selectedEvents
-        .where((element) => element.name == event.name)
+        .where((element) => element.id == event.id)
         .isNotEmpty;
   }
 
@@ -77,7 +77,7 @@ class _EventsPageState extends State<EventsPage> {
     if (!value) {
       setState(() {
         _selectedEvents = _selectedEvents
-            .where((element) => element.name != event.name)
+            .where((element) => element.id != event.id)
             .toList();
       });
 

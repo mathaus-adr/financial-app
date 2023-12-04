@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import '../../controllers/bill_controller.dart';
 import '../../models/bill.dart';
 
+// ignore: must_be_immutable
 class BillMultiSelect extends StatefulWidget {
   BillMultiSelect(
       {super.key,
