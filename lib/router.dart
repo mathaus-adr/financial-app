@@ -1,4 +1,3 @@
-import 'package:financialweb/pages/create_account_page.dart';
 import 'package:financialweb/pages/event_details_page.dart';
 import 'package:financialweb/pages/login_page.dart';
 import 'package:financialweb/pages/signup_page.dart';
@@ -8,9 +7,9 @@ import 'pages/events_page.dart';
 
 final router = GoRouter(initialLocation: '/', routes: [
   GoRoute(
-    path: '/login',
-    builder: (context, state) => const LoginPage(),
-  ),
+      path: '/login',
+      builder: (context, state) => const LoginPage(),
+      name: 'login'),
   GoRoute(
       path: '/events',
       name: 'eventos',
@@ -20,7 +19,9 @@ final router = GoRouter(initialLocation: '/', routes: [
             path: ':eventIndex',
             name: 'event-details',
             builder: (context, state) {
-              return const EventDetailsPage();
+              int id = int.parse(state.params['eventIndex'] as String);
+              
+              return EventDetailsPage(id: id);
             })
       ]),
   GoRoute(path: '/', builder: (context, state) => const LoginPage(), routes: [

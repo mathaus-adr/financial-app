@@ -1,22 +1,29 @@
+import 'dart:convert';
+
 import 'package:financialweb/repositories/person_repository.dart';
 import 'package:flutter/foundation.dart';
 
+import '../http/http_service.dart';
 import '../models/person.dart';
 
 class PersonController extends ChangeNotifier {
   final PersonRepository repository;
+  final HttpService httpService;
   bool loading = true;
   List<Person> people = [];
 
-  PersonController(this.repository) {
+  PersonController(this.repository, this.httpService) {
     load();
   }
 
   Future<List<Person>> load() async {
     loading = true;
     notifyListeners();
+    var response = await httpService.get('people');
 
-    people = await repository.list();
+    List peopleJson = jsonDecode(response.body);
+    people =
+        peopleJson.map((e) => Person(name: e['name'], id: e['id'])).cast<Person>().toList();
     loading = false;
     notifyListeners();
 
@@ -24,14 +31,16 @@ class PersonController extends ChangeNotifier {
   }
 
   save(String text) async {
-    final Person person = Person(name: text);
-    final success = await repository.create(person);
+    var response = await httpService.post('people', {
+      "name": text,
+    });
 
-    if (success) {
-      people = await repository.list();
+    if (response.statusCode == 201) {
+      await load();
       notifyListeners();
       return Future.value(true);
     }
+
     return Future.value(false);
   }
 }

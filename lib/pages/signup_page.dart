@@ -87,22 +87,26 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: Center(
                   child: ElevatedButton(
                     style: const ButtonStyle(
-                        minimumSize: MaterialStatePropertyAll(Size(50, 50))),
-                    onPressed: () {
+                        minimumSize: MaterialStatePropertyAll(Size(50, 50)),
+                        backgroundColor:
+                            MaterialStatePropertyAll(Colors.indigo)),
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        bool success = controller.cadastrar(nameController.text,
+                        bool success = await controller.cadastrar(nameController.text,
                             emailController.text, passwordController.text);
                         if (success) {
-                          context.goNamed('eventos');
+                          context.goNamed('login');
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
-                                content: Text('Login efetuado com sucesso!')),
+                                content: Text('Cadastro efetuado com sucesso!')),
                           );
 
                           return;
                         }
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Já existe um cadastro com esse email!')),
+                          const SnackBar(
+                              content: Text(
+                                  'Já existe um cadastro com esse email!')),
                         );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -111,7 +115,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         );
                       }
                     },
-                    child: const Text('Cadastrar'),
+                    child: const Text('Cadastrar', style: TextStyle(color: Colors.white),),
                   ),
                 ),
               ),

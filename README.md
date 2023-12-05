@@ -47,7 +47,13 @@ Funcionalidades:
     - [x] Cadastro de atividade
     - [x] Cadastro de conta
 
+#Instalacao
+  - Instalar as dependencias
+  - Rodar o emulador
+ 
+#Bugs
 
 - Parte 2
   - Mudar a navbar para responder aos eventos
   - Utilizar com base na listagem de eventos 
+  - Manter Hive

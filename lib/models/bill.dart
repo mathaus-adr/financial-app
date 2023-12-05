@@ -1,7 +1,6 @@
 import 'package:financialweb/models/person.dart';
 import 'package:hive/hive.dart';
 
-part 'bill.g.dart';
 
 @HiveType(typeId: 1)
 class Bill {
@@ -11,5 +10,9 @@ class Bill {
   late double preco;
   @HiveField(2)
   late Person? payedBy;
-  Bill({required this.name, required this.preco, this.payedBy});
+  @HiveField(3)
+  late int? id;
+  Bill({required this.name, required this.preco, this.payedBy, this.id});
+
+  toJson() => {"name": name, "preco": preco, "payedBy": payedBy, "id" : id};
 }

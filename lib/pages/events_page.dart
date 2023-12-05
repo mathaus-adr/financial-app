@@ -56,19 +56,20 @@ class _EventsPageState extends State<EventsPage> {
         );
       }),
       floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: Colors.indigo,
         onPressed: () => showModalBottomSheet(
             context: context,
             builder: (_) => const AddEventDialog(),
             isScrollControlled: true),
-        label: const Text('Adicionar'),
-        icon: const Icon(Icons.add),
+        label: const Text('Adicionar', style: TextStyle(color: Colors.white),),
+        icon: const Icon(Icons.add, color: Colors.white,),
       ),
     );
   }
 
   isEventSelected(Event event) {
     return _selectedEvents
-        .where((element) => element.name == event.name)
+        .where((element) => element.id == event.id)
         .isNotEmpty;
   }
 
@@ -76,7 +77,7 @@ class _EventsPageState extends State<EventsPage> {
     if (!value) {
       setState(() {
         _selectedEvents = _selectedEvents
-            .where((element) => element.name != event.name)
+            .where((element) => element.id != event.id)
             .toList();
       });
 

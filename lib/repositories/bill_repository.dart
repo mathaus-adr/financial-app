@@ -1,4 +1,3 @@
-import 'package:financialweb/models/person.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../models/bill.dart';
 

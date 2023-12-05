@@ -4,7 +4,6 @@ import 'bill.dart';
 import 'person.dart';
 import 'user.dart';
 
-part 'event.g.dart';
 
 @HiveType(typeId: 0)
 class Event {
@@ -14,7 +13,11 @@ class Event {
   late List<Person> participantes = [];
   @HiveField(2)
   late List<Bill> contas = [];
+  @HiveField(3)
+  late int id;
 
   Event(
-      {required this.name, required this.participantes, required this.contas});
+      {required this.name, required this.participantes, required this.contas, required this.id});
+
+  Event.fromJson(Map<String, dynamic> json) {}
 }

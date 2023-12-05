@@ -25,7 +25,9 @@ class TileEventWidget extends StatelessWidget {
       title: Text(event.name),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       onTap: () {
-        context.goNamed('event-details', params: {'eventIndex': id.toString()});
+        context.goNamed('event-details', params: {
+          'eventIndex': event.id.toString(),
+        });
       },
     );
   }

@@ -3,15 +3,19 @@ import 'package:hive_flutter/hive_flutter.dart';
 import '../models/user.dart';
 
 class UserRepository {
-  late Box<User> box;
+  late Box<String> box;
   User? _user;
   UserRepository() {
     initHive();
   }
 
+  getAuthenticatedUser() {
+    return _user;
+  }
+
   openBox() async {
     await initHive();
-    box = await Hive.openBox<User>('users');
+    box = await Hive.openBox<String>('users');
   }
 
   login(String email, String password) async {
@@ -38,8 +42,24 @@ class UserRepository {
     if (!box.isOpen) {
       openBox();
     }
-    box.add(user);
+    // box.add(user);
     return true;
+  }
+
+  saveToken(String token) async {
+    await openBox();
+    if (!box.isOpen) {
+      openBox();
+    }
+    box.put('token', token);
+  }
+
+  Future<String?> getToken() async {
+    await openBox();
+    if (!box.isOpen) {
+      openBox();
+    }
+    return Future.value(box.get('token'));
   }
 
   initHive() async {

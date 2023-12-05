@@ -1,5 +1,7 @@
+
 import 'package:financialweb/controllers/bill_controller.dart';
 import 'package:financialweb/controllers/events_controller.dart';
+import 'package:financialweb/http/http_service.dart';
 import 'package:financialweb/models/bill.dart';
 import 'package:financialweb/models/event.dart';
 import 'package:financialweb/models/person.dart';
@@ -17,9 +19,6 @@ import 'router.dart';
 
 void main() async {
   await Hive.initFlutter();
-  Hive.registerAdapter(EventAdapter());
-  Hive.registerAdapter(PersonAdapter());
-  Hive.registerAdapter(BillAdapter());
   Hive.registerAdapter(UserAdapter());
 
   runApp(MultiProvider(
@@ -36,16 +35,19 @@ void main() async {
       Provider<UserRepository>(
         create: (_) => UserRepository(),
       ),
+      Provider<HttpService>(
+          create: (context) => HttpService(
+              'http://192.168.207.1/api/', context.read<UserRepository>())),
       ChangeNotifierProvider<EventsController>(
           create: (context) =>
-              EventsController(context.read<EventsRepository>())),
+              EventsController(context.read<EventsRepository>(), context.read<HttpService>())),
       ChangeNotifierProvider<PersonController>(
           create: (context) =>
-              PersonController(context.read<PersonRepository>())),
+              PersonController(context.read<PersonRepository>(), context.read<HttpService>())),
       ChangeNotifierProvider<BillController>(
-          create: (context) => BillController(context.read<BillRepository>())),
+          create: (context) => BillController(context.read<BillRepository>(), context.read<HttpService>())),
       ChangeNotifierProvider<UserController>(
-          create: (context) => UserController(context.read<UserRepository>()))
+          create: (context) => UserController(context.read<UserRepository>())),
     ],
     child: const App(),
   ));

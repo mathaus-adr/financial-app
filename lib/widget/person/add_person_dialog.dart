@@ -1,4 +1,3 @@
-import 'package:financialweb/controllers/events_controller.dart';
 import 'package:financialweb/controllers/person_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -75,11 +74,14 @@ class _AddPersonState extends State<AddPerson> {
                         width: double.infinity,
                         height: 50,
                         child: FilledButton.tonalIcon(
+                          style: const ButtonStyle(
+                              backgroundColor:
+                                  MaterialStatePropertyAll(Colors.indigo)),
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               controller.save(_title.text);
                               if (context.mounted) context.pop(context);
-                              
+
                               ScaffoldMessenger.of(context)
                                   .showSnackBar(const SnackBar(
                                       content: Center(
@@ -87,8 +89,9 @@ class _AddPersonState extends State<AddPerson> {
                               )));
                             }
                           },
-                          icon: const Icon(Icons.check),
-                          label: const Text('Cadastrar'),
+                          icon: const Icon(Icons.check, color: Colors.white),
+                          label: const Text('Cadastrar',
+                              style: TextStyle(color: Colors.white)),
                         ),
                       ),
                     )

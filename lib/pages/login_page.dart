@@ -84,9 +84,9 @@ class _LoginPageState extends State<LoginPage> {
                   child: ElevatedButton(
                     style: const ButtonStyle(
                         minimumSize: MaterialStatePropertyAll(Size(50, 50))),
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        bool success = controller.login(
+                        bool success = await controller.login(
                             emailController.text, passwordController.text);
                         if (success) {
                           context.goNamed('eventos');
@@ -94,7 +94,12 @@ class _LoginPageState extends State<LoginPage> {
                             const SnackBar(
                                 content: Text('Login efetuado com sucesso!')),
                           );
+                          return;
                         }
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content: Text('Email/senha incorretos, tente novamente!')),
+                        );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
